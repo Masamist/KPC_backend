@@ -1,4 +1,4 @@
-const Project = require('./../models/playlistModel')
+const { db } = require('./firebase.js')
 
 // Get all project method
 exports.getAllProject = async (req, res) => {
@@ -41,8 +41,11 @@ exports.getProject = async (req, res) => {
 // Create a new project Method
 exports.createProject = async (req, res) => {
   try{
-    const newProject = await Project.create(req.body)
-
+    const newProject = req.body
+    const projectRef = db.collection('project')
+    const resp = await projectRef.set({
+      newProject
+    })
     res.status(201).json({
       status:'created',
       data:{

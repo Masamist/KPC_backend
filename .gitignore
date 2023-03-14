@@ -147,4 +147,5 @@ dist
 .pnp.*
 
 .git/index.lock
-Footer
+creds-kpc.json
+

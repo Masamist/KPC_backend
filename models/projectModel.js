@@ -13,9 +13,9 @@ const playlistSchema = new mongoose.Schema({
   "suburb":"Parnell",
   "city":"Auckland"
   },
-  
+
 })
 
-const Project = mongoose.mdel('Project', projectSchema)
+const Project = mongoose.model('Project', projectSchema)
 
 module.exports = Project
