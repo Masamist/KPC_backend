@@ -1,9 +1,16 @@
-const { db } = require('./firebase.js')
+const { db } = require('./../firebase.js')
+const { collection, getDocs } = require('firebase-admin/firestore')
+
+// collection ref
+const colRef = db.collection('projects')
+
 
 // Get all project method
 exports.getAllProject = async (req, res) => {
   try{
-    const projects = await Project.find(req.query)
+    const projects = await db.getDocs(colRef).then((snapshot) => {
+      console.log(snapshot.docs);
+    })
     res.status(200).json({
       status: 'success',
       results: projects.length,

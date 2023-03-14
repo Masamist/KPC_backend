@@ -148,4 +148,5 @@ dist
 
 .git/index.lock
 creds-kpc.json
+firebase.js
 
