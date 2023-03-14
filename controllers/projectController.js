@@ -4,10 +4,8 @@ const { collection, getDocs } = require('firebase-admin/firestore')
 // collection ref
 const colRef = db.collection('projects')
 
-
 // Get all project method
-exports.getAllProject = async (req, res) => {
-  try{
+exports.getAllProjects = async (req, res) => {
     const projects = await db.getDocs(colRef).then((snapshot) => {
       console.log(snapshot.docs);
     })
@@ -18,12 +16,6 @@ exports.getAllProject = async (req, res) => {
         projects
       }
     }) 
-  } catch(err) {
-    res.status(404).jason({
-      status:'fail',
-      message:err
-    })
-  }
 }
 
 // Get a single project method
